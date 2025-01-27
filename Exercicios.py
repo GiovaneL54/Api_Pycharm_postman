@@ -33,6 +33,9 @@ def execucao(id):
         dados = json.loads(request.data)
         tarefas[id] = dados
         return jsonify(dados)
+    elif request.method == 'DELETE':
+        execucao.pop(id)
+        return  jsonify({'Status': 'sucesso', 'mensagem':'Registro deletado'})
 
 
 if __name__ == '__main__':
